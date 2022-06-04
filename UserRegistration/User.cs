@@ -39,5 +39,15 @@ namespace UserRegistration
             }
             Console.WriteLine("Your Phone Number not is Valid");
         }
+        public void Password(string inputPassword)
+        {
+            const string PASSWORD = "^[0-9A-Za-z]{8,}$";
+            if(Regex.IsMatch(inputPassword, PASSWORD))
+            {
+                Console.WriteLine("Your Password is Valid");
+                return;
+            }
+            Console.WriteLine("Your Password is not Valid");
+        }
     }
 }
