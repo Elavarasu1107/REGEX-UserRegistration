@@ -41,7 +41,7 @@ namespace UserRegistration
         }
         public void Password(string inputPassword)
         {
-            const string PASSWORD = "^(?=.*[A-Z]).{8,}$";
+            const string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z]).{8,}$";
             if (Regex.IsMatch(inputPassword, PASSWORD))
             {
                 Console.WriteLine("Your Password is Valid");
