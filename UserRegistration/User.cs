@@ -21,13 +21,23 @@ namespace UserRegistration
         }
         public void EmailChecker(string inputEmail)
         {
-            const string EMAIL = "^[0-9a-z]{1,}([.+-_]*)[0-9a-z]{1,}(@)(gmail|bl)(.)(com|co)([.]*)([in]*)$";
+            const string EMAIL = "^[0-9a-z]{1,}([.+-_]*)[0-9a-z]{1,}(@)(gmail|bl)(.)(com|co)((.in)*)$";
             if (Regex.IsMatch(inputEmail, EMAIL))
             {
                 Console.WriteLine("Your Email is Valid");
                 return;
             }
             Console.WriteLine("Your Email is not Valid");
+        }
+        public void Phone(string inputPhone)
+        {
+            const string PHONE = "^([+]*)(91 )[6-9]{1}[0-9]{9}$";
+            if( Regex.IsMatch(inputPhone, PHONE))
+            {
+                Console.WriteLine("Your Phone Number is Valid");
+                return;
+            }
+            Console.WriteLine("Your Phone Number not is Valid");
         }
     }
 }
