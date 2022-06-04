@@ -21,7 +21,7 @@ namespace UserRegistration
         }
         public void EmailChecker(string inputEmail)
         {
-            const string EMAIL = "^[0-9a-z]{1,}([.+-_]*)[0-9a-z]{1,}(@)(gmail|bl)(.)(com|co)((.in)*)$";
+            const string EMAIL = "^[0-9a-z]{1,}([.+-_]*)[0-9a-z]{1,}(@)(gmail|bl|yahoo|abc|1)(.)(com|co)((.in|.com|.au)*)$";
             if (Regex.IsMatch(inputEmail, EMAIL))
             {
                 Console.WriteLine("Your Email is Valid");
@@ -41,8 +41,8 @@ namespace UserRegistration
         }
         public void Password(string inputPassword)
         {
-            const string PASSWORD = "^[0-9A-Za-z]{8,}$";
-            if(Regex.IsMatch(inputPassword, PASSWORD))
+            const string PASSWORD = "^(?=.*[A-Z]).{8,}$";
+            if (Regex.IsMatch(inputPassword, PASSWORD))
             {
                 Console.WriteLine("Your Password is Valid");
                 return;
