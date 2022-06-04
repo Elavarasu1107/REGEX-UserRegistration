@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UserRegistration
 {
-    internal class User
+    public class User
     {
         public void NameChecker(string inputName)
         {
@@ -19,15 +19,16 @@ namespace UserRegistration
             }
             Console.WriteLine("Your Name is Invalid...Name should start with Caps and have atleast 3 characters");
         }
-        public void EmailChecker(string inputEmail)
+        public string EmailChecker(string inputEmail)
         {
-            const string EMAIL = "^[0-9a-z]{1,}([.+-_]*)[0-9a-z]{1,}(@)(gmail|bl|yahoo|abc|1)(.)(com|co)((.in|.com|.au)*)$";
+            const string EMAIL = "^[0-9a-z]{1,}([.+-]?)[0-9a-z]{1,}(@)(gmail|bl|yahoo|abc|1)(.)(com|co|net)((.in|.com|.au)*)$";
             if (Regex.IsMatch(inputEmail, EMAIL))
             {
-                Console.WriteLine("Your Email is Valid");
-                return;
+                Console.WriteLine(inputEmail + " - is Valid");
+                return "Valid";
             }
-            Console.WriteLine("Your Email is not Valid");
+            Console.WriteLine(inputEmail + " - is Invalid");
+            return "Invalid";
         }
         public void Phone(string inputPhone)
         {
