@@ -7,7 +7,7 @@ namespace UserRegistration
         public static void Main(string[] args)
         {
             User getMethod = new User();
-            Console.WriteLine("Enter 1 to check First name\n 2 to check Last Name");
+            Console.WriteLine("Enter 1 to check First name\n 2 to check Last Name\n 3 to check Email");
             Console.WriteLine("Enter a Number");
             int userInput = Convert.ToInt32(Console.ReadLine());
 
@@ -25,6 +25,13 @@ namespace UserRegistration
                         Console.Write("Enter Your Last Name: ");
                         string lastName = Console.ReadLine();
                         getMethod.NameChecker(lastName);
+                        break;
+                    }
+                case 3:
+                    {
+                        Console.Write("Enter Your Email: ");
+                        string email = Console.ReadLine();
+                        getMethod.EmailChecker(email);
                         break;
                     }
                 default:
