@@ -18,7 +18,6 @@ namespace UserRegistration
                 return;
             }
             Console.WriteLine("Your Name is Invalid...Name should start with Caps and have atleast 3 characters");
-
         }
     }
 }
