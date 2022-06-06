@@ -32,7 +32,7 @@ namespace UserRegistration
         }
         public void Phone(string inputPhone)
         {
-            const string PHONE = "^([+]*)(91 )[6-9]{1}[0-9]{9}$";
+            const string PHONE = "^([+]{0,1})(91 )[6-9]{1}[0-9]{9}$";
             if( Regex.IsMatch(inputPhone, PHONE))
             {
                 Console.WriteLine("Your Phone Number is Valid");
@@ -42,7 +42,7 @@ namespace UserRegistration
         }
         public void Password(string inputPassword)
         {
-            const string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z]).{8,}$";
+            const string PASSWORD = "^(?=[a-zA-Z0-9,]*[!#@$%^&][a-zA-Z0-9,]*$)[a-zA-Z0-9,!#@$%^&]+.{8,}$"; 
             if (Regex.IsMatch(inputPassword, PASSWORD))
             {
                 Console.WriteLine("Your Password is Valid");
