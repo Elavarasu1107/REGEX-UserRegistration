@@ -9,15 +9,16 @@ namespace UserRegistration
 {
     public class User
     {
-        public void NameChecker(string inputName)
+        public string NameChecker(string inputName)
         {
             const string NAME = "^[A-Z]{1}[a-z]{2,}$";
             if(Regex.IsMatch(inputName, NAME))
             {
                 Console.WriteLine("Your Name is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Your Name is Invalid...Name should start with Caps and have atleast 3 characters");
+            return "Invalid";
         }
         public string EmailChecker(string inputEmail)
         {
@@ -30,25 +31,27 @@ namespace UserRegistration
             Console.WriteLine(inputEmail + " - is Invalid");
             return "Invalid";
         }
-        public void Phone(string inputPhone)
+        public string Phone(string inputPhone)
         {
             const string PHONE = "^([+]{0,1})(91 )[6-9]{1}[0-9]{9}$";
             if( Regex.IsMatch(inputPhone, PHONE))
             {
                 Console.WriteLine("Your Phone Number is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Your Phone Number not is Valid");
+            return "Invalid";
         }
-        public void Password(string inputPassword)
+        public string Password(string inputPassword)
         {
-            const string PASSWORD = "^(?=[a-zA-Z0-9,]*[!#@$%^&][a-zA-Z0-9,]*$)[a-zA-Z0-9,!#@$%^&]+.{8,}$"; 
+            const string PASSWORD = "^(?=[a-zA-Z0-9]*[!#@$%^&][a-zA-Z0-9]*$)[a-zA-Z0-9!#@$%^&]+.{8,}$"; 
             if (Regex.IsMatch(inputPassword, PASSWORD))
             {
                 Console.WriteLine("Your Password is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Your Password is not Valid");
+            return "Invalid";
         }
     }
 }
