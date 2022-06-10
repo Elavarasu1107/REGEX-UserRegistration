@@ -22,8 +22,11 @@ namespace UserRegistration
                 Console.WriteLine("Your Name is Valid");
                 return "Valid";
             }
-            Console.WriteLine("Your Name is Invalid...Name should start with Caps and have atleast 3 characters");
-            return "Invalid";
+            else
+            {
+                Console.WriteLine("Your Name is Invalid...Name should start with Caps and have atleast 3 characters");
+                throw new CustomException(CustomException.ExceptionType.INVALID_NAME, "Invalid Name");
+            }
         }
         public string EmailChecker()
         {
@@ -33,8 +36,11 @@ namespace UserRegistration
                 Console.WriteLine(input + " - is Valid");
                 return "Valid";
             }
-            Console.WriteLine(input + " - is Invalid");
-            return "Invalid";
+            else
+            {
+                Console.WriteLine(input + " - is Invalid");
+                throw new CustomException(CustomException.ExceptionType.INVALID_EMAIL, "Invalid Email");
+            }
         }
         public string Phone()
         {
@@ -44,8 +50,11 @@ namespace UserRegistration
                 Console.WriteLine("Your Phone Number is Valid");
                 return "Valid";
             }
-            Console.WriteLine("Your Phone Number not is Valid");
-            return "Invalid";
+            else
+            {
+                Console.WriteLine("Your Phone Number not is Valid");
+                throw new CustomException(CustomException.ExceptionType.INVALID_NUMBER, "Invalid PhoneNumber");
+            }
         }
         public string Password()
         {
@@ -55,8 +64,11 @@ namespace UserRegistration
                 Console.WriteLine("Your Password is Valid");
                 return "Valid";
             }
-            Console.WriteLine("Your Password is not Valid");
-            return "Invalid";
+            else
+            {
+                Console.WriteLine("Your Password is not Valid");
+                throw new CustomException(CustomException.ExceptionType.INVALID_PASSWORD, "Invalid Password");
+            }
         }
     }
 }
