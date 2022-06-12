@@ -17,7 +17,8 @@ namespace UserRegistration
         public string NameChecker()
         {
             const string NAME = "^[A-Z]{1}[a-z]{2,}$";
-            if (Regex.IsMatch(input, NAME))
+            Func<string, bool> result = (input) => (Regex.IsMatch(input, NAME));
+            if (result(input))
             {
                 Console.WriteLine("Your Name is Valid");
                 return "Valid";
@@ -30,8 +31,10 @@ namespace UserRegistration
         }
         public string EmailChecker()
         {
-            const string EMAIL = "^[0-9a-z]{1,}([.+-]?)[0-9a-z]{1,}(@)(gmail|bl|yahoo|abc|1)(.)(com|co|net)((.in|.com|.au)*)$";
-            if (Regex.IsMatch(input, EMAIL))
+            //const string EMAIL = "^[0-9a-z]{1,}([.+-]?)[0-9a-z]{1,}(@)(gmail|bl|yahoo|abc|1)(.)(com|co|net)((.in|.com|.au)*)$";
+            const string EMAIL = "^[0-9a-z]{1,}([.+-]?)[0-9a-z]{1,}(@)[a-z0-9]{1,}(.)(com|co|net)((.in|.com|.au)*)$";
+            Func<string, bool> result = input => (Regex.IsMatch(input, EMAIL));
+            if (result(input))
             {
                 Console.WriteLine(input + " - is Valid");
                 return "Valid";
@@ -45,7 +48,8 @@ namespace UserRegistration
         public string Phone()
         {
             const string PHONE = "^([+]{0,1})(91 )[6-9]{1}[0-9]{9}$";
-            if (Regex.IsMatch(input, PHONE))
+            Func<string, bool> result = input => (Regex.IsMatch(input, PHONE));
+            if (result(input))
             {
                 Console.WriteLine("Your Phone Number is Valid");
                 return "Valid";
@@ -59,7 +63,8 @@ namespace UserRegistration
         public string Password()
         {
             const string PASSWORD = "^(?=[a-zA-Z0-9]*[!#@$%^&][a-zA-Z0-9]*$)[a-zA-Z0-9!#@$%^&]+.{8,}$";
-            if (Regex.IsMatch(input, PASSWORD))
+            Func<string, bool> result = input => (Regex.IsMatch(input, PASSWORD));
+            if (result(input))
             {
                 Console.WriteLine("Your Password is Valid");
                 return "Valid";
